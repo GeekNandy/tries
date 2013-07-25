@@ -9,3 +9,11 @@ the memory usage Ternary Search Tries is implemented.At every node it has only t
 
 I am looking forward for the implementation of Suffix Trees,Other Advanced Data Structures and many more operations that could be added to this API.
 Any support, help or suggestions on improvement are most welcome.
+
+This implementation contains a folder ADT.It contains several Generic Data Structures like Stack,Queues, Priority Queues.
+
+Finally there are various Compression algorithms.We have used
+here various abstractions for making Programming a lot easier.
+We have used here BinaryStdIn(Takes Input Stream in Binary Format),BinaryStdOut(Outputs the Binary Stream),HexDump,BinaryDump,and PictureDump.
+
+Using this standard files,we have implemented various compression algorithms like FixedLengthEncoding,Running Length Encoding,Huffman Compression,LZW Compression.
