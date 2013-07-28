@@ -1,36 +1,11 @@
 import java.util.Iterator;
 public class Queue<Item> implements Iterable<Item> {
-    private Node head=null;
-    private Node tail=null;
-    @Override
-    public Iterator<Item> iterator() {
-        return new QueueIterator();
-    }
-    private class Node{
-        Item item;
-        Node next;
-    }
-    public boolean isEmpty(){
-        return head==null;
-    }
-    public void enqueue(Item item){
-        Node x=new Node();
-        x.item=item;
-        if(isEmpty()){
-            head=x;
-        }
-        else{
-            tail.next=x;
-            tail=tail.next;
-        }
-    }
-    public Item dequeue(){
-        assert(!isEmpty());
-        Item item=head.item;
-        head=head.next;
-        return item; 
-    }
+
     private  class QueueIterator implements Iterator<Item> {
+
+        public QueueIterator() {
+        }
+
         @Override
         public boolean hasNext() {
             return (!isEmpty());
@@ -46,7 +21,38 @@ public class Queue<Item> implements Iterable<Item> {
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("Not    supported yet.");
+            throw new UnsupportedOperationException("Not supported yet.");
         }
-    }  
+    }
+    private Node head,tail;
+
+    @Override
+    public Iterator<Item> iterator() {
+        return new QueueIterator();
+    }
+    private class Node{
+        Item item;
+        Node next;
+    }
+    public boolean isEmpty(){
+        return head==null;
+    }
+    public void enqueue(Item item){
+        Node oldlast=tail;
+        tail=new Node();
+        tail.item=item;
+        tail.next=null;
+        if(isEmpty())
+            head=tail;
+        else
+            oldlast.next=tail;
+    }
+    public Item dequeue(){
+        assert(!isEmpty());
+        Item item=head.item;
+        head=head.next;
+        if(isEmpty())
+            tail=null;
+        return item; 
+    }
 }
